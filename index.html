@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      background-color: #050505;
+      background: radial-gradient(circle at top, #0b1630 0%, #050505 55%, #000000 100%);
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
@@ -17,29 +17,44 @@
     .container {
       max-width: 3000px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 40px 20px 80px 20px;
     }
 
     h1 {
-      color: #9de000;
-      font-size: 144px; /* 36px x 4 */
+      color: #baff00;
+      font-size: 144px;
       margin-bottom: 30px;
       line-height: 1.1;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow:
+        0 0 5px #baff00,
+        0 0 10px #baff00,
+        0 0 20px #9de000,
+        0 0 40px #9de000,
+        0 0 60px #9de000,
+        0 0 80px #7cff00;
     }
 
     p {
-      font-size: 72px; /* 18px x 4 */
+      font-size: 72px;
       line-height: 1.5;
-      color: #dddddd;
+      color: #f2f2f2;
       max-width: 2600px;
       margin: 0 auto 40px auto;
+      text-shadow:
+        0 0 4px rgba(255,255,255,0.25),
+        0 0 10px rgba(157, 224, 0, 0.15);
     }
 
     img {
       width: 100%;
-      max-width: 2700px; /* about 3x bigger than 900px */
+      max-width: 2700px;
       border-radius: 16px;
-      box-shadow: 0 0 30px rgba(157, 224, 0, 0.45);
+      box-shadow:
+        0 0 20px rgba(157, 224, 0, 0.35),
+        0 0 45px rgba(157, 224, 0, 0.25);
       margin-top: 20px;
     }
 
@@ -53,15 +68,21 @@
       font-weight: bold;
       font-size: 42px;
       border-radius: 12px;
+      box-shadow: 0 0 18px rgba(157, 224, 0, 0.45);
+      transition: 0.3s ease;
     }
 
     .button:hover {
       background-color: #baff00;
+      box-shadow:
+        0 0 10px rgba(186, 255, 0, 0.6),
+        0 0 25px rgba(186, 255, 0, 0.8);
     }
 
     @media (max-width: 1200px) {
       h1 {
         font-size: 72px;
+        letter-spacing: 2px;
       }
 
       p {
@@ -75,8 +96,13 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding: 30px 15px 50px 15px;
+      }
+
       h1 {
         font-size: 48px;
+        letter-spacing: 1px;
       }
 
       p {
@@ -93,7 +119,7 @@
 
 <body>
   <div class="container">
-    <h1>May the 4th with you</h1>
+    <h1>May The 4th With You</h1>
 
     <p>
       Celebrate May 4th with the Newson Sportec mascot! Our futuristic dog mechanic is ready for a space adventure with powerful parts, bold performance, and a glowing green light sword.
