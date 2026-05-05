@@ -8,19 +8,75 @@
   <style>
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top right, rgba(157, 224, 0, 0.10), transparent 30%),
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 20%),
-        #050505;
+      background: #050505;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Animated starry background */
+    .stars,
+    .stars2,
+    .stars3 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      background-repeat: repeat;
+      z-index: -1;
+    }
+
+    .stars {
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 100px 150px, #d9ff63, transparent),
+        radial-gradient(1px 1px at 200px 80px, white, transparent),
+        radial-gradient(1px 1px at 300px 220px, #baff00, transparent),
+        radial-gradient(2px 2px at 420px 120px, white, transparent);
+      background-size: 500px 500px;
+      animation: moveStars 80s linear infinite;
+      opacity: 0.8;
+    }
+
+    .stars2 {
+      background-image:
+        radial-gradient(1px 1px at 50px 70px, white, transparent),
+        radial-gradient(2px 2px at 160px 250px, #9de000, transparent),
+        radial-gradient(1px 1px at 260px 140px, white, transparent),
+        radial-gradient(2px 2px at 380px 320px, #d9ff63, transparent);
+      background-size: 600px 600px;
+      animation: moveStars 120s linear infinite;
+      opacity: 0.55;
+    }
+
+    .stars3 {
+      background-image:
+        radial-gradient(1px 1px at 80px 90px, white, transparent),
+        radial-gradient(1px 1px at 220px 300px, #baff00, transparent),
+        radial-gradient(2px 2px at 360px 180px, white, transparent),
+        radial-gradient(1px 1px at 480px 400px, #9de000, transparent);
+      background-size: 700px 700px;
+      animation: moveStars 160s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes moveStars {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-500px);
+      }
     }
 
     .container {
       max-width: 3000px;
       margin: 0 auto;
       padding: 40px 20px 70px 20px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -49,7 +105,6 @@
     .neon-title span:nth-child(3) { animation-delay: 0.6s; }
     .neon-title span:nth-child(4) { animation-delay: 0.9s; }
     .neon-title span:nth-child(5) { animation-delay: 1.2s; }
-    .neon-title span:nth-child(6) { animation-delay: 1.5s; }
 
     @keyframes twinkle {
       0%, 100% {
@@ -62,17 +117,10 @@
           0 0 40px #9de000,
           0 0 80px #9de000;
       }
-      25% {
-        opacity: 0.88;
-        text-shadow:
-          0 0 3px #d9ff63,
-          0 0 6px #baff00,
-          0 0 12px #9de000,
-          0 0 24px #9de000;
-      }
+
       50% {
         opacity: 1;
-        transform: scale(1.02);
+        transform: scale(1.03);
         text-shadow:
           0 0 8px #f2ffb0,
           0 0 16px #d9ff63,
@@ -80,8 +128,9 @@
           0 0 60px #9de000,
           0 0 100px #9de000;
       }
+
       75% {
-        opacity: 0.93;
+        opacity: 0.85;
         text-shadow:
           0 0 4px #d9ff63,
           0 0 8px #baff00,
@@ -90,12 +139,37 @@
       }
     }
 
+    /* Glowing paragraph */
     p {
       font-size: 72px;
       line-height: 1.5;
-      color: #dddddd;
+      color: #f4ffd9;
       max-width: 2600px;
-      margin: 0 auto 40px auto;
+      margin: 0 auto 50px auto;
+      text-shadow:
+        0 0 4px rgba(217, 255, 99, 0.8),
+        0 0 10px rgba(186, 255, 0, 0.6),
+        0 0 20px rgba(157, 224, 0, 0.35);
+      animation: paragraphGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes paragraphGlow {
+      0%, 100% {
+        opacity: 0.95;
+        text-shadow:
+          0 0 4px rgba(217, 255, 99, 0.8),
+          0 0 10px rgba(186, 255, 0, 0.6),
+          0 0 20px rgba(157, 224, 0, 0.35);
+      }
+
+      50% {
+        opacity: 1;
+        text-shadow:
+          0 0 8px rgba(242, 255, 176, 1),
+          0 0 18px rgba(217, 255, 99, 0.9),
+          0 0 34px rgba(186, 255, 0, 0.65),
+          0 0 55px rgba(157, 224, 0, 0.45);
+      }
     }
 
     img {
@@ -125,6 +199,7 @@
     .button:hover {
       background-color: #baff00;
       box-shadow: 0 0 28px rgba(186, 255, 0, 0.75);
+      transform: scale(1.05);
     }
 
     @media (max-width: 1200px) {
@@ -145,6 +220,7 @@
     @media (max-width: 768px) {
       h1 {
         font-size: 48px;
+        letter-spacing: 2px;
       }
 
       p {
@@ -160,6 +236,10 @@
 </head>
 
 <body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
   <div class="container">
     <h1 class="neon-title">
       <span>May</span>
