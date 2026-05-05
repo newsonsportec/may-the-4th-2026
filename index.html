@@ -8,7 +8,10 @@
   <style>
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #0b1630 0%, #050505 55%, #000000 100%);
+      background:
+        radial-gradient(circle at top right, rgba(157, 224, 0, 0.10), transparent 30%),
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 20%),
+        #050505;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
@@ -17,35 +20,82 @@
     .container {
       max-width: 3000px;
       margin: 0 auto;
-      padding: 40px 20px 80px 20px;
+      padding: 40px 20px 70px 20px;
     }
 
     h1 {
-      color: #baff00;
-      font-size: 144px;
       margin-bottom: 30px;
       line-height: 1.1;
+      font-size: 144px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 4px;
+    }
+
+    .neon-title span {
+      display: inline-block;
+      color: #d9ff63;
       text-shadow:
-        0 0 5px #baff00,
+        0 0 5px #d9ff63,
         0 0 10px #baff00,
         0 0 20px #9de000,
         0 0 40px #9de000,
-        0 0 60px #9de000,
-        0 0 80px #7cff00;
+        0 0 80px #9de000;
+      animation: twinkle 2.2s infinite ease-in-out;
+    }
+
+    .neon-title span:nth-child(1) { animation-delay: 0s; }
+    .neon-title span:nth-child(2) { animation-delay: 0.3s; }
+    .neon-title span:nth-child(3) { animation-delay: 0.6s; }
+    .neon-title span:nth-child(4) { animation-delay: 0.9s; }
+    .neon-title span:nth-child(5) { animation-delay: 1.2s; }
+    .neon-title span:nth-child(6) { animation-delay: 1.5s; }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow:
+          0 0 5px #d9ff63,
+          0 0 10px #baff00,
+          0 0 20px #9de000,
+          0 0 40px #9de000,
+          0 0 80px #9de000;
+      }
+      25% {
+        opacity: 0.88;
+        text-shadow:
+          0 0 3px #d9ff63,
+          0 0 6px #baff00,
+          0 0 12px #9de000,
+          0 0 24px #9de000;
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.02);
+        text-shadow:
+          0 0 8px #f2ffb0,
+          0 0 16px #d9ff63,
+          0 0 30px #baff00,
+          0 0 60px #9de000,
+          0 0 100px #9de000;
+      }
+      75% {
+        opacity: 0.93;
+        text-shadow:
+          0 0 4px #d9ff63,
+          0 0 8px #baff00,
+          0 0 16px #9de000,
+          0 0 32px #9de000;
+      }
     }
 
     p {
       font-size: 72px;
       line-height: 1.5;
-      color: #f2f2f2;
+      color: #dddddd;
       max-width: 2600px;
       margin: 0 auto 40px auto;
-      text-shadow:
-        0 0 4px rgba(255,255,255,0.25),
-        0 0 10px rgba(157, 224, 0, 0.15);
     }
 
     img {
@@ -53,8 +103,8 @@
       max-width: 2700px;
       border-radius: 16px;
       box-shadow:
-        0 0 20px rgba(157, 224, 0, 0.35),
-        0 0 45px rgba(157, 224, 0, 0.25);
+        0 0 20px rgba(157, 224, 0, 0.30),
+        0 0 50px rgba(157, 224, 0, 0.25);
       margin-top: 20px;
     }
 
@@ -74,15 +124,12 @@
 
     .button:hover {
       background-color: #baff00;
-      box-shadow:
-        0 0 10px rgba(186, 255, 0, 0.6),
-        0 0 25px rgba(186, 255, 0, 0.8);
+      box-shadow: 0 0 28px rgba(186, 255, 0, 0.75);
     }
 
     @media (max-width: 1200px) {
       h1 {
         font-size: 72px;
-        letter-spacing: 2px;
       }
 
       p {
@@ -96,13 +143,8 @@
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding: 30px 15px 50px 15px;
-      }
-
       h1 {
         font-size: 48px;
-        letter-spacing: 1px;
       }
 
       p {
@@ -119,7 +161,13 @@
 
 <body>
   <div class="container">
-    <h1>May The 4th With You</h1>
+    <h1 class="neon-title">
+      <span>May</span>
+      <span>The</span>
+      <span>4th</span>
+      <span>With</span>
+      <span>You</span>
+    </h1>
 
     <p>
       Celebrate May 4th with the Newson Sportec mascot! Our futuristic dog mechanic is ready for a space adventure with powerful parts, bold performance, and a glowing green light sword.
